@@ -23,8 +23,13 @@ while True:
 
     if len(data) > 0:
         data = [int(x) for x in data.split(",")]
-        d["x"].append(data[0])
+        angle_1 = data[0]
+        angle_2 = data[1]
+        distance = data[2]
+
+        d["x"].append(data[0]) # change this to x, y, and z when we calculate for them
         d["y"].append(data[1])
         d["z"].append(data[2])
+
         df = pd.DataFrame(data=d)
         df.to_csv("data.csv")
