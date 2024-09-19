@@ -16,7 +16,7 @@ app.layout = html.Div([
     dcc.Graph(id='real-time-plot'),
     dcc.Interval(
         id='interval-component',
-        interval=4*1000,  # in milliseconds
+        interval=500,  # in milliseconds
         n_intervals=0
     )
 ])
