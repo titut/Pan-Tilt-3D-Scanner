@@ -22,11 +22,9 @@ while True:
     data = serialPort.readline().decode()
 
     if len(data) > 0:
-        x = 5 * random.random()
-        y = 5 * random.random()
-        z = 5 * random.random()
-        d["x"].append(x)
-        d["y"].append(y)
-        d["z"].append(z)
+        data = [int(x) for x in data.split(",")]
+        d["x"].append(data[0])
+        d["y"].append(data[1])
+        d["z"].append(data[2])
         df = pd.DataFrame(data=d)
         df.to_csv("data.csv")

@@ -1,8 +1,12 @@
 #include <Servo.h>
 
+String delimiter = ",";
+
 Servo myservo;
 const int sensor = A0;
 
+int angle_1;
+int angle_2;
 long sensor_reading;
 
 void setup() {
@@ -13,8 +17,12 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   //sensor_reading = analogRead(sensor);
-
-  Serial.println("sensor_reading");
+  angle_1 = random(0, 180);
+  angle_2 = random(0, 180);
+  sensor_reading = random(5, 24);
+  
+  String print_to_serial = angle_1 + delimiter + angle_2 + delimiter + sensor_reading;
+  Serial.print(print_to_serial);
 
   /*
   for (int pos = 0; pos < 180; pos += 1) {
