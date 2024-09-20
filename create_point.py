@@ -11,12 +11,16 @@ def d_inches(d_raw):
     
     '''
     d = 51.422*math.exp(-0.004*d_raw) #converison equation from calibration data
-    print(d)
+    return d
 
-def create_point(d, theta, phi):
-    if d >= 24:
-        z = d * math.sin(theta)
-        g = d * math.cos(theta)
-        x = g * math.sin(phi)
+def create_point(d, theta_deg, phi_deg):
+    if d <= 24:
+        theta = math.radians(theta_deg)
+        phi = math.radians(phi_deg)
+        z = -1 * d * math.cos(theta)
+        g = d * math.sin(theta)
+        x = -1 * g * math.cos(phi)
         y = g * math.sin(phi)
-        print(x, y, z)
+        return (x, y, z)
+    else:
+        return (0, 0, 0)

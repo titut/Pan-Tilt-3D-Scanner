@@ -19,8 +19,8 @@ void loop() {
   //sensor_reading = analogRead(sensor);
   angle_1 = random(0, 180);
   angle_2 = random(0, 180);
-  sensor_reading = random(5, 24);
-  
+  sensor_reading = random(0, 600);
+
   String print_to_serial = angle_1 + delimiter + angle_2 + delimiter + sensor_reading;
   Serial.print(print_to_serial);
 

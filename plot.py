@@ -30,8 +30,9 @@ def update_graph(n_intervals):
     new_data = pd.read_csv(csv_file)
     
     # Update the plot
-    fig = px.scatter_3d(new_data, x='x', y='y', z='z', title='Cool Plot')
-    fig.update_scenes(xaxis_autorange="reversed")
+    fig = px.scatter_3d(new_data, x='x', y='y', z='z', color="point_type", title='Cool Plot')
+    camera = dict(eye=dict(x=2,y=2,z=0.5))
+    fig.update_layout(scene_camera=camera)
     
     return fig
 
