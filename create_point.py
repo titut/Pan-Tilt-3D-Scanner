@@ -7,14 +7,17 @@ import math
 
 def d_inches(d_raw):
     '''
-    Converts the output voltage from sensor into a distance in inches
-    
+    Converts the output voltage from sensor into a distance in inches 
     '''
-    d = 51.422*math.exp(-0.004*d_raw) #converison equation from calibration data
+    d = 50.1153*math.exp(-0.0038*d_raw) #converison equation from calibration data
     return d
 
 def create_point(d, theta_deg, phi_deg):
-    if d <= 24:
+    '''
+    If sensor data is reading less that 18 inches, converts angle in degrees and
+    distance in inches into a point with x, y, and z values
+    '''
+    if d <= 18:
         theta = math.radians(theta_deg)
         phi = math.radians(phi_deg)
         z = -1 * d * math.cos(theta)
